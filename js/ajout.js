@@ -3,7 +3,7 @@ let divusr = document.getElementById('idajout');
 let prenom = localStorage.getItem('monPrenom');
 let html_string = '';
 html_string += 'User : ' + prenom + '<br>';
-console.log(html_string)
+// console.log(html_string)
 divusr.innerHTML = html_string;
 
 const apiUrl = 'http://localhost:3000/todos'; 
@@ -17,8 +17,8 @@ btnAjout.addEventListener('click', function(event) {
     event.preventDefault();
     const taskValue = taskInput.value;
     const tagsValue = tagsInput.value;
-    console.log(taskValue);
-    console.log(tagsValue);
+    // console.log(taskValue);
+    // console.log(tagsValue);
     if (taskValue === "") {
         alert("Veuillez saisir un titre");
         taskInput.focus();
@@ -64,7 +64,7 @@ async function createTask(taskTitle, tagsText) {
         const newTask = await response.json();
         
         // Affichage des détails de la nouvelle tâche dans la console
-        console.log('Nouvelle tâche créée :', newTask);
+        // console.log('Nouvelle tâche créée :', newTask);
         
         return newTask;
 

@@ -5,7 +5,7 @@ let divusr = document.getElementById('divstat');
 let prenom = localStorage.getItem('monPrenom');
 let html_string = '';
 html_string += 'User : ' + prenom + '<br>';
-console.log(html_string)
+// console.log(html_string)
 divusr.innerHTML = html_string;
 
 // URL API
@@ -20,11 +20,11 @@ async function countTasks() {
         const response = await fetch(apiUrl);
         const dataj = await response.json();
         const data = await dataj[0].todolist;
-        console.log(dataj[0].todolist);
+        // console.log(dataj[0].todolist);
 
         const taskCount = data.length;
     
-        console.log('Nombre de tâches :', taskCount);
+        // console.log('Nombre de tâches :', taskCount);
 
         // Filtrer les tâches pour obtenir seulement celles qui sont terminées
         const completedTasks = data.filter(task => task.is_complete);
@@ -33,13 +33,13 @@ async function countTasks() {
         const taskCompleted = completedTasks.length;
         
         // Affichage du nombre de tâches terminées dans la console
-        console.log('Nombre de tâches terminées :', taskCompleted);
+        // console.log('Nombre de tâches terminées :', taskCompleted);
 
         // Comptage du nombre de tâches à faire
         const taskEnCours = taskCount - taskCompleted;
 
         // Affichage du nombre de tâches à faire dans la console
-        console.log('Nombre de tâches à faire :', taskEnCours);
+        // console.log('Nombre de tâches à faire :', taskEnCours);
 
         // Remplissage de la row
         const row = document.createElement('tr');

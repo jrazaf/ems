@@ -10,7 +10,7 @@ btn.addEventListener("click", (event) => {
     let balisePrenom = document.getElementById('prenom');
     const valeurPrenom = balisePrenom.value;
     if (valeurPrenom === "") {
-        console.log('Le champ prénom est vide');
+        // console.log('Le champ prénom est vide');
         localStorage.setItem("monPrenom", valeurPrenom);
         alert("Veuillez saisir le prénom SVP");
         balisePrenom.focus();

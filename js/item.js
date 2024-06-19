@@ -4,7 +4,7 @@ let titleTask = document.getElementById('title-task');
 let prenom = localStorage.getItem('monPrenom');
 let html_string = '';
 html_string += 'User : ' + prenom + '<br>';
-console.log(html_string)
+// console.log(html_string)
 divusr.innerHTML = html_string;
 
 // URL de base de l'API 
@@ -23,14 +23,14 @@ async function getTaskById(taskId) {
     try {
         // Création de l'URL complète avec l'ID de la tâche
         const taskUrl = `${apiUrl}/${taskId}`;
-        console.log('URL api ;',taskUrl);
+        // console.log('URL api ;',taskUrl);
         
         // Appel à l'API pour obtenir les détails de la tâche
         const response = await fetch(taskUrl);
         const dataj = await response.json();
-        console.log(dataj);
+        // console.log(dataj);
 
-        console.log('Titre tâche :',dataj.text);
+        // console.log('Titre tâche :',dataj.text);
         titleTask.innerHTML = dataj.text;
 
         const rowtitre = document.createElement('tr');
@@ -41,7 +41,7 @@ async function getTaskById(taskId) {
         dataTableBody.appendChild(rowtitre);
         
         let statutTask = `${dataj.is_complete ? 'Terminé' : 'A faire'}`;
-        console.log('Etat tâche :',statutTask);
+        // console.log('Etat tâche :',statutTask);
 
         const rowetat = document.createElement('tr');
         rowetat.innerHTML = `
@@ -60,7 +60,7 @@ async function getTaskById(taskId) {
         };
 
         let dateTask = `${new Date(dataj.created_at).toLocaleDateString('fr-FR', options)}`;
-        console.log('Date tâche :',dateTask);
+        // console.log('Date tâche :',dateTask);
 
         const rowdate = document.createElement('tr');
         rowdate.innerHTML = `
@@ -69,7 +69,7 @@ async function getTaskById(taskId) {
         `;
         dataTableBody.appendChild(rowdate);
 
-        console.log('Tags : ',dataj.Tags[0],',',dataj.Tags[1]);
+        // console.log('Tags : ',dataj.Tags[0],',',dataj.Tags[1]);
 
         const rowtags = document.createElement('tr');
         rowtags.innerHTML = `
@@ -118,7 +118,7 @@ async function getTaskById(taskId) {
 
 // Vérifier si l'ID de la tâche est présent et Appeler la fonction pour obtenir les détails de la tâche
 if (urlId) {
-    console.log('taskid :',urlId);
+    // console.log('taskid :',urlId);
     getTaskById(urlId);
 } else {
     console.error('Le paramètre "taskId" est manquant dans l\'URL');
@@ -144,7 +144,7 @@ async function updateTaskStatus(taskId, newStatus) {
         }
         
         const updatedTask = await response.json();
-        console.log('Tâche mise à jour :', updatedTask);
+        // console.log('Tâche mise à jour :', updatedTask);
         return updatedTask;
     } catch (error) {
         console.error('Erreur:', error);
@@ -168,7 +168,7 @@ async function deleteTask(taskId) {
             throw new Error('Erreur lors de la suppression de la tâche : ' + response.statusText);
         }
         
-        console.log('Tâche supprimée ');
+        // console.log('Tâche supprimée ');
         return true;
 
     } catch (error) {

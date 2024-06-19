@@ -5,7 +5,7 @@ let divusr = document.getElementById('idusr');
 let prenom = localStorage.getItem('monPrenom');
 let html_string = '';
 html_string += 'User : ' + prenom + '<br>';
-console.log(html_string)
+// console.log(html_string)
 divusr.innerHTML = html_string;
 
 
@@ -29,7 +29,7 @@ async function fetchData() {
         const response = await fetch(apiUrl);
         const dataj = await response.json();
         const data = await dataj[0].todolist;
-        console.log(dataj[0].todolist);
+        // console.log(dataj[0].todolist);
         populateTable(data);
     } catch (error) {
         console.error('Erreur lors de la récupération des données:', error);
